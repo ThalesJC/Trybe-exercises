@@ -1,24 +1,19 @@
 import React from "react";
 
-const handleClick =() => {
-  console.log('Clicou no botão!')
-}
-
-const otherHandleClick = () => {
-  console.log('clicou outro botao')
-}
-
-const otherHandleClickAgain = () => {
-  console.log('clicou o outro outro botao')
-}
-
 class App extends React.Component {
+  constructor() {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    console.log('Clicou no botão!')
+  }
+
   render() {
     return (
       <>
-        <button onClick={handleClick}>Meu botão</button>
-        <button onClick={otherHandleClick}>Meu botão</button>
-        <button onClick={otherHandleClickAgain}>Meu botão</button>
+        <button onClick={this.handleClick}>Meu botão</button>
       </>
       );
   }
